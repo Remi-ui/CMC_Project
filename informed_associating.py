@@ -4,8 +4,9 @@ import re
 
 def main():
     
-    f = open('Groningen_comment_1641290564.txt', 'r')
+    f = open('BitMarket_comment_1641293337.txt', 'r')
     cnt = 0
+    total = 0
     prev_link = ''
     auth_list = []
     for line in f:
@@ -29,37 +30,17 @@ def main():
         if len(user) != 0:
             for person in user:
                 person = person.replace('/u/','')
-                if person not in auth_list:
+                if person not in auth_list and author!='AutoModerator' and or_link != '/r/BitMarket/comments/78c4y2/wts_mint_or_nearly_mint_oj_simpson_rookie_card/dosnnc9/' and or_link != '/r/BitMarket/comments/7ky6xb/scammer_urezrami/drk59vq/' and link != '/r/BitMarket/comments/8timox/wts_adobe_creative_cloud_all_apps_adobe_stock':
+                    total += 1
                     print("")
                     print('----------')
                     print(link)
                     print(or_link)
                     print(message)
+                    print(total)
                     print('----------')
 
         prev_link = link
 
 if __name__ == "__main__":
     main()
-
-
-# p = open('Groningen_comment_1641290564.txt', 'r')
-#             cnt_inner = 0
-#             for entry in p:
-#                 #print(cnt)
-#                 cnt_inner += 1
-#                 #print(cnt_inner)
-#                 #print(cnt_inner)
-#                 json_dat = json.dumps(ast.literal_eval(entry))
-#                 dict_dat = json.loads(json_dat)
-#                 if 'permalink' in dict_dat:
-#                     cur_link = dict_dat['permalink']
-#                     cur_link = cur_link.rsplit('/', 2)
-#                     cur_link = cur_link[0] 
-#                 if cur_link == link:
-#                     if dict_dat['author'] in user_u and cnt_inner < cnt:
-#                         print("nee!")
-#                     elif dict_dat['author'] in user_u and cnt_inner > cnt:
-#                         print(cur_link)
-#                         print("ja!")
-#                         print(dict_dat['body'])
